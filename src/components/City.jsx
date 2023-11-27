@@ -3,6 +3,7 @@ import ButtonBack from './Button';
 import { useParams } from 'react-router';
 import Spinner from './Spinner';
 import Message from './Message';
+import { useCityContext } from '../context/CityContext';
 const formatDate = date =>
   new Intl.DateTimeFormat('en', {
     day: 'numeric',
@@ -10,7 +11,9 @@ const formatDate = date =>
     year: 'numeric',
   }).format(new Date(date));
 
-function City({ cities, isLoading }) {
+function City() {
+  const { isLoading, cities } = useCityContext();
+
   const { id } = useParams();
 
   if (isLoading) return <Spinner />;
