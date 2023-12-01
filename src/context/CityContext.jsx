@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router';
 
 const CityContext = new createContext();
 
@@ -6,7 +7,8 @@ const BASE_URL = 'http://localhost:8000';
 
 function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentCity, setCurrentCity] = useState({});
 
   useEffect(function () {
     async function fetchCities() {
@@ -15,19 +17,35 @@ function CityProvider({ children }) {
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
         setCities(data);
-        setIsLoading(false);
       } catch (e) {
-        alert('something went wrong');
+        alert('hi! you forget to run the server in your localhost');
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchCities();
   }, []);
+
+  async function getCity(id) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_URL}/cities/${id}`);
+      const data = await res.json();
+      setCurrentCity(data);
+    } catch (err) {
+      alert('something went long');
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     <CityContext.Provider
       value={{
         cities,
         isLoading,
+        currentCity,
+        getCity,
       }}
     >
       {children}
