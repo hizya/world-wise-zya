@@ -33,6 +33,8 @@ function City() {
 
   const { cityName, emoji, date, notes } = currentCity;
 
+  console.log('currentCIty', currentCity);
+
   return (
     <>
       {isLoading && <Spinner />}

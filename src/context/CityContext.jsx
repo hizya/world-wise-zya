@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 
 const CityContext = new createContext();
 
@@ -9,7 +9,6 @@ function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentCity, setCurrentCity] = useState({});
-
   useEffect(function () {
     async function fetchCities() {
       try {
@@ -39,6 +38,12 @@ function CityProvider({ children }) {
     }
   }
 
+  function addCity(newCity) {
+    console.log(cities);
+    setCities([...cities, newCity]);
+    setCurrentCity(newCity);
+  }
+
   return (
     <CityContext.Provider
       value={{
@@ -46,6 +51,7 @@ function CityProvider({ children }) {
         isLoading,
         currentCity,
         getCity,
+        addCity,
       }}
     >
       {children}

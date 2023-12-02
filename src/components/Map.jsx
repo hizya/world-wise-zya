@@ -13,6 +13,10 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { useCityContext } from '../context/CityContext';
 import { useEffect, useState } from 'react';
+import { useGeolocation } from '../hooks/useGeolocation';
+import Button from './Button';
+
+import { useUrlPosition } from '../hooks/useUrlPosition';
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -22,14 +26,18 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function Map() {
-  console.log('map render');
-  const [searchParams] = useSearchParams();
+  const [mapLat, mapLng] = useUrlPosition();
 
   const [mapPosition, setMapPosition] = useState([40, 0]);
 
-  const mapLat = searchParams.get('lat'); //null
-  const mapLng = searchParams.get('lng'); //null
+  const {
+    isLoading: isLoadingPosition,
+    position: geolocationPosition,
+    getPosition,
+  } = useGeolocation();
 
+  // const mapLat = searchParams.get('lat'); //null
+  // const mapLng = searchParams.get('lng'); //null
   const { cities } = new useCityContext();
 
   useEffect(
@@ -39,8 +47,21 @@ function Map() {
     [mapLat, mapLng]
   );
 
+  useEffect(
+    function () {
+      if (geolocationPosition)
+        setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+    },
+    [geolocationPosition]
+  );
+
   return (
     <div className={styles.mapContainer}>
+      {!geolocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? 'is loading...' : 'get the position'}
+        </Button>
+      )}
       <MapContainer
         center={mapPosition}
         zoom={6}
@@ -81,7 +102,6 @@ function DetectClick() {
   const navigate = useNavigate();
   useMapEvent({
     click: e => {
-      console.log(e.latlng);
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });
