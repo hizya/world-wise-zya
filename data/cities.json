@@ -1,282 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
-    },
-    {
-      "cityName": "Uncastillo",
-      "country": "Spain",
-      "date": "2023-12-03T02:51:35.464Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "42.425128139707475",
-        "lng": "-1.0568679640279144"
-      },
-      "id": 98443198
-    },
-    {
-      "cityName": "Siguenza",
-      "country": "Spain",
-      "date": "2023-12-03T02:52:40.514Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "41.113765887232105",
-        "lng": "-2.549791339691947"
-      },
-      "id": 98443199
-    },
-    {
-      "cityName": "Saelices de Mayorga",
-      "country": "Spain",
-      "date": "2023-12-03T02:52:45.945Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "42.22978157968372",
-        "lng": "-5.208429822057773"
-      },
-      "id": 98443200
-    },
-    {
-      "cityName": "Vallibona",
-      "country": "Spain",
-      "date": "2023-12-03T03:02:28.490Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "40.61542202228544",
-        "lng": "0.08565723708791051"
-      },
-      "id": 98443201
-    },
-    {
-      "cityName": "Nerpio",
-      "country": "Spain",
-      "date": "2023-12-03T03:03:26.004Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "38.22343403661585",
-        "lng": "-2.2422905847371126"
-      },
-      "id": 98443202
-    },
-    {
-      "cityName": "Villeneuve",
-      "country": "France",
-      "date": "2023-12-03T03:04:25.370Z",
-      "emoji": "🇫🇷",
-      "notes": "",
-      "position": {
-        "lat": "42.95709172594873",
-        "lng": "0.9861021674876947"
-      },
-      "id": 98443203
-    },
-    {
-      "cityName": "Meallet",
-      "country": "France",
-      "date": "2023-12-03T03:04:28.447Z",
-      "emoji": "🇫🇷",
-      "notes": "",
-      "position": {
-        "lat": "45.24476824434818",
-        "lng": "2.414102543424179"
-      },
-      "id": 98443204
-    },
-    {
-      "cityName": "Villanueva del Rio y Minas",
-      "country": "Spain",
-      "date": "2023-12-03T03:05:41.457Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "37.581626103207036",
-        "lng": "-5.7153992171097805"
-      },
-      "id": 98443205
-    },
-    {
-      "cityName": "Outat El Haj",
-      "country": "Morocco",
-      "date": "2023-12-03T03:05:48.184Z",
-      "emoji": "🇲🇦",
-      "notes": "",
-      "position": {
-        "lat": "33.21441561905487",
-        "lng": "-3.540836597961357"
-      },
-      "id": 98443206
-    },
-    {
-      "cityName": "Pozoamargo",
-      "country": "Spain",
-      "date": "2023-12-03T03:09:47.072Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "39.28522913054163",
-        "lng": "-2.1764361246481223"
-      },
-      "id": 98443207
-    },
-    {
-      "cityName": "Alia",
-      "country": "Spain",
-      "date": "2023-12-03T03:09:50.046Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "39.5226123861495",
-        "lng": "-5.230211952324742"
-      },
-      "id": 98443208
-    },
-    {
-      "cityName": "Mezquita de Jarque",
-      "country": "Spain",
-      "date": "2023-12-03T03:11:30.298Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "40.748680312576624",
-        "lng": "-0.8587118362582038"
-      },
-      "id": 98443209
-    },
-    {
-      "cityName": "Berlanga de Duero",
-      "country": "Spain",
-      "date": "2023-12-03T03:12:02.502Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "41.42767798112427",
-        "lng": "-2.857673146612803"
-      },
-      "id": 98443210
-    },
-    {
-      "cityName": "Quintanapalla",
-      "country": "Spain",
-      "date": "2023-12-03T03:14:01.633Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "42.424753742490665",
-        "lng": "-3.5174985054997188"
-      },
-      "id": 98443211
-    },
-    {
-      "cityName": "Almagro",
-      "country": "Spain",
-      "date": "2023-12-03T03:14:24.112Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "38.841799739643655",
-        "lng": "-3.6698569848233813"
-      },
-      "id": 98443212
-    },
-    {
-      "cityName": "Caceres",
-      "country": "Spain",
-      "date": "2023-12-03T03:14:26.841Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "39.36980891482844",
-        "lng": "-6.790238791744238"
-      },
-      "id": 98443213
-    },
-    {
-      "cityName": "Ladrillar",
-      "country": "Spain",
-      "date": "2023-12-03T03:23:31.188Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "40.43175706312404",
-        "lng": "-6.17353313276425"
-      },
-      "id": 98443214
-    },
-    {
-      "cityName": "Chaves",
-      "country": "Portugal",
-      "date": "2023-12-03T03:23:35.574Z",
-      "emoji": "🇵🇹",
-      "notes": "",
-      "position": {
-        "lat": "41.80527095827748",
-        "lng": "-7.31853517165935"
-      },
-      "id": 98443215
-    },
-    {
-      "cityName": "Shenzhen",
-      "country": "China",
-      "date": "2023-12-03T03:23:53.884Z",
-      "emoji": "🇨🇳",
-      "notes": "",
-      "position": {
-        "lat": "22.546161522296423",
-        "lng": "114.08269110279147"
-      },
-      "id": 98443216
-    },
-    {
-      "cityName": "Shenzhen",
-      "country": "China",
-      "date": "2023-12-03T03:27:36.488Z",
-      "emoji": "🇨🇳",
-      "notes": "",
-      "position": {
-        "lat": "22.615953018598557",
-        "lng": "114.10117992303819"
-      },
-      "id": 98443217
-    },
-    {
       "cityName": "Shenzhen",
       "country": "China",
       "date": "2023-12-03T03:30:30.619Z",
@@ -287,6 +11,54 @@
         "lng": "114.05381891403573"
       },
       "id": 98443218
+    },
+    {
+      "cityName": "Alconchel de Ariza",
+      "country": "Spain",
+      "date": "2023-12-03T03:55:20.426Z",
+      "emoji": "🇪🇸",
+      "notes": "",
+      "position": {
+        "lat": "41.1983428467954",
+        "lng": "-2.132067421074742"
+      },
+      "id": 98443219
+    },
+    {
+      "cityName": "Alcaudete de la Jara",
+      "country": "Spain",
+      "date": "2023-12-03T03:55:35.857Z",
+      "emoji": "🇪🇸",
+      "notes": "",
+      "position": {
+        "lat": "39.779085533568875",
+        "lng": "-4.878797639200432"
+      },
+      "id": 98443220
+    },
+    {
+      "cityName": "Vinhais",
+      "country": "Portugal",
+      "date": "2023-12-03T03:55:40.441Z",
+      "emoji": "🇵🇹",
+      "notes": "",
+      "position": {
+        "lat": "41.77329844939887",
+        "lng": "-7.120252026567617"
+      },
+      "id": 98443221
+    },
+    {
+      "cityName": "Villasbuenas de Gata",
+      "country": "Spain",
+      "date": "2023-12-03T03:56:29.794Z",
+      "emoji": "🇪🇸",
+      "notes": "",
+      "position": {
+        "lat": "40.16650709041182",
+        "lng": "-6.616204029921936"
+      },
+      "id": 98443222
     }
   ]
 }
