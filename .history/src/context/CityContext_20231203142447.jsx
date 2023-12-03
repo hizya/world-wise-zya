@@ -46,7 +46,6 @@ function reducer(state, action) {
         ...state,
         isLoading: false,
         cities: state.cities.filter(city => city.id !== action.payload),
-        currentCity: {},
       };
 
     case 'rejected':
@@ -65,6 +64,9 @@ function CityProvider({ children }) {
 
   const { cities, isLoading, currentCity, error } = state;
 
+  // const [cities, setCities] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [currentCity, setCurrentCity] = useState({});
   useEffect(function () {
     async function fetchCities() {
       dispatch({ type: 'loading' });
@@ -73,17 +75,14 @@ function CityProvider({ children }) {
         const data = await res.json();
         dispatch({ type: 'cities/loaded', payload: data });
       } catch (e) {
-        dispatch({
-          type: 'rejected',
-          payload: 'hi! you forget to run the server in your localhost',
-        });
+        dispatch({ type: 'rejected' });
+        alert('hi! you forget to run the server in your localhost');
       }
     }
     fetchCities();
   }, []);
 
   async function getCity(id) {
-    if (+id === currentCity.id) return;
     try {
       dispatch({ type: 'loading' });
       const res = await fetch(`${BASE_URL}/cities/${id}`);
@@ -120,6 +119,7 @@ function CityProvider({ children }) {
       dispatch({ type: 'city/deleted', payload: id });
     } catch (err) {
       dispatch({ type: 'rejected', payload: 'something went long' });
+      alert('something went long');
     }
   }
 
@@ -132,7 +132,6 @@ function CityProvider({ children }) {
         getCity,
         addCity,
         deleteCity,
-        error,
       }}
     >
       {children}

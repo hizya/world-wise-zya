@@ -1,42 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Shenzhen",
-      "country": "China",
-      "date": "2023-12-03T03:30:30.619Z",
-      "emoji": "🇨🇳",
-      "notes": "",
-      "position": {
-        "lat": "22.696522890008957",
-        "lng": "114.05381891403573"
-      },
-      "id": 98443218
-    },
-    {
-      "cityName": "Alconchel de Ariza",
-      "country": "Spain",
-      "date": "2023-12-03T03:55:20.426Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "41.1983428467954",
-        "lng": "-2.132067421074742"
-      },
-      "id": 98443219
-    },
-    {
-      "cityName": "Alcaudete de la Jara",
-      "country": "Spain",
-      "date": "2023-12-03T03:55:35.857Z",
-      "emoji": "🇪🇸",
-      "notes": "",
-      "position": {
-        "lat": "39.779085533568875",
-        "lng": "-4.878797639200432"
-      },
-      "id": 98443220
-    },
-    {
       "cityName": "Vinhais",
       "country": "Portugal",
       "date": "2023-12-03T03:55:40.441Z",
@@ -49,16 +13,40 @@
       "id": 98443221
     },
     {
-      "cityName": "Villasbuenas de Gata",
+      "cityName": "Murias de Paredes",
       "country": "Spain",
-      "date": "2023-12-03T03:56:29.794Z",
+      "date": "2023-12-03T06:11:58.696Z",
       "emoji": "🇪🇸",
       "notes": "",
       "position": {
-        "lat": "40.16650709041182",
-        "lng": "-6.616204029921936"
+        "lat": "42.861609263212074",
+        "lng": "-6.261279420865176"
       },
-      "id": 98443222
+      "id": 98443223
+    },
+    {
+      "cityName": "Almarza de Cameros",
+      "country": "Spain",
+      "date": "2023-12-03T06:12:02.324Z",
+      "emoji": "🇪🇸",
+      "notes": "",
+      "position": {
+        "lat": "42.23251576724871",
+        "lng": "-2.568807111169176"
+      },
+      "id": 98443224
+    },
+    {
+      "cityName": "Toril y Masegoso",
+      "country": "Spain",
+      "date": "2023-12-03T06:12:08.196Z",
+      "emoji": "🇪🇸",
+      "notes": "",
+      "position": {
+        "lat": "40.21691050177152",
+        "lng": "-1.5154810293956689"
+      },
+      "id": 98443225
     }
   ]
 }

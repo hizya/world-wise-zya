@@ -16,6 +16,8 @@ const formatDate = date =>
 function City() {
   const { getCity, currentCity, isLoading } = useCityContext();
 
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
   useEffect(
@@ -30,6 +32,8 @@ function City() {
   if (isLoading) return <Spinner />;
 
   const { cityName, emoji, date, notes } = currentCity;
+
+  console.log('currentCIty', currentCity);
 
   return (
     <>

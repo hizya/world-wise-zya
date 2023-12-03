@@ -23,17 +23,11 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
+        currentCity: action.payload,
         cities: action.payload,
       };
 
-    case 'city/loaded':
-      return {
-        ...state,
-        isLoading: false,
-        currentCity: action.payload,
-      };
-
-    case 'city/created':
+    case 'cities/created':
       return {
         ...state,
         isLoading: false,
@@ -41,19 +35,17 @@ function reducer(state, action) {
         cities: [...state.cities, action.payload],
       };
 
-    case 'city/deleted':
+    case 'cities/deleted':
       return {
         ...state,
         isLoading: false,
         cities: state.cities.filter(city => city.id !== action.payload),
-        currentCity: {},
       };
 
     case 'rejected':
       return {
         ...state,
         isLoading: false,
-        error: action.payload,
       };
     default:
       throw new Error('unknown error');
@@ -65,6 +57,9 @@ function CityProvider({ children }) {
 
   const { cities, isLoading, currentCity, error } = state;
 
+  // const [cities, setCities] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [currentCity, setCurrentCity] = useState({});
   useEffect(function () {
     async function fetchCities() {
       dispatch({ type: 'loading' });
@@ -73,24 +68,22 @@ function CityProvider({ children }) {
         const data = await res.json();
         dispatch({ type: 'cities/loaded', payload: data });
       } catch (e) {
-        dispatch({
-          type: 'rejected',
-          payload: 'hi! you forget to run the server in your localhost',
-        });
+        dispatch({ type: 'rejected' });
+        alert('hi! you forget to run the server in your localhost');
       }
     }
     fetchCities();
   }, []);
 
   async function getCity(id) {
-    if (+id === currentCity.id) return;
     try {
       dispatch({ type: 'loading' });
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
-      dispatch({ type: 'city/loaded', payload: data });
+      dispatch({ type: 'cities/get', payload: data });
     } catch (err) {
       dispatch({ type: 'rejected', payload: 'something went long' });
+      alert('something went long');
     }
   }
 
@@ -105,9 +98,10 @@ function CityProvider({ children }) {
         body: JSON.stringify(newCity),
       });
       const data = await res.json();
-      dispatch({ type: 'city/created', payload: data });
+      dispatch({ type: 'cities/created', payload: data });
     } catch (err) {
       dispatch({ type: 'rejected', payload: 'something went long' });
+      alert('something went long');
     }
   }
 
@@ -117,9 +111,10 @@ function CityProvider({ children }) {
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: 'DELETE',
       });
-      dispatch({ type: 'city/deleted', payload: id });
+      dispatch({ type: 'cities/deleted', payload: id });
     } catch (err) {
       dispatch({ type: 'rejected', payload: 'something went long' });
+      alert('something went long');
     }
   }
 
@@ -132,7 +127,6 @@ function CityProvider({ children }) {
         getCity,
         addCity,
         deleteCity,
-        error,
       }}
     >
       {children}

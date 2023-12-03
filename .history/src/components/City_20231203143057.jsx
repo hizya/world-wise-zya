@@ -16,6 +16,8 @@ const formatDate = date =>
 function City() {
   const { getCity, currentCity, isLoading } = useCityContext();
 
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
   useEffect(
