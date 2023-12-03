@@ -14,7 +14,7 @@ function CityItem({ city }) {
 
   const { currentCity } = useCityContext();
 
-  console.log('currentCity', currentCity.id);
+  console.log('currentCity', currentCity);
   console.log(id === currentCity.id);
 
   return (

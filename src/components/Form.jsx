@@ -11,6 +11,10 @@ import Spinner from './Spinner';
 import { useCityContext } from '../context/CityContext';
 
 import { useUrlPosition } from '../hooks/useUrlPosition';
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 import Message from './Message';
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -21,14 +25,14 @@ export function convertToEmoji(countryCode) {
 }
 
 function Form() {
-  const { addCity } = useCityContext();
+  const { addCity, isLoading } = useCityContext();
   const [emoji, setEmoji] = useState(null);
   const navigate = useNavigate();
   const [mapLat, mapLng] = useUrlPosition();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [cityName, setCityName] = useState('');
   const [country, setCountry] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState('');
 
   const [error, setError] = useState('');
@@ -53,12 +57,6 @@ function Form() {
             );
           }
           setCityName(data.city || data.locality || '');
-          setDate(date => {
-            const year = new Date().getFullYear();
-            const month = `${new Date().getMonth()}`.padStart(2, 0);
-            const day = `${new Date().getDay()}`.padStart(2, 0);
-            return `${day}/${month}/${year}`;
-          });
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
         } catch (err) {
@@ -72,6 +70,24 @@ function Form() {
     [mapLat, mapLng]
   );
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      date,
+      emoji,
+      notes,
+      position: { lat: mapLat, lng: mapLng },
+    };
+
+    await addCity(newCity);
+    navigate('/app/cities');
+  }
+
   if (isLoadingGeocoding) return <Spinner />;
 
   if (!mapLat && !mapLng)
@@ -80,7 +96,10 @@ function Form() {
   if (error) return <Message message={error} />;
 
   return (
-    <form className={styles.form}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ''}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -93,7 +112,13 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input id="date" onChange={e => setDate(e.target.value)} value={date} />
+        {/* <input id="date" onChange={e => setDate(e.target.value)} value={date} /> */}
+        <DatePicker
+          id="date"
+          selected={date}
+          onChange={date => setDate(date)}
+          dateFormat="dd/MM/yyyy"
+        />
       </div>
 
       <div className={styles.row}>
@@ -106,23 +131,7 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button
-          type="primary"
-          onClick={e => {
-            e.preventDefault();
-            addCity({
-              cityName,
-              country,
-              date,
-              emoji,
-              id: +new Date(),
-              position: { lat: mapLat, lng: mapLng },
-            });
-            navigate('/app/cities');
-          }}
-        >
-          Add
-        </Button>
+        <Button type="primary">Add</Button>
         <BackButton />
       </div>
     </form>

@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 const CityContext = new createContext();
 
@@ -7,7 +6,7 @@ const BASE_URL = 'http://localhost:8000';
 
 function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
   useEffect(function () {
     async function fetchCities() {
@@ -38,10 +37,25 @@ function CityProvider({ children }) {
     }
   }
 
-  function addCity(newCity) {
-    console.log(cities);
-    setCities([...cities, newCity]);
-    setCurrentCity(newCity);
+  async function addCity(newCity) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_URL}/cities`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newCity),
+      });
+      const data = await res.json();
+      setCurrentCity(data);
+      setCities([...cities, data]);
+    } catch (err) {
+      alert('something went long');
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
