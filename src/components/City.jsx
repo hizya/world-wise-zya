@@ -1,8 +1,7 @@
 import styles from './City.module.css';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import Spinner from './Spinner';
-import { useEffect, useState } from 'react';
-import Button from './Button';
+import { useEffect } from 'react';
 import { useCityContext } from '../context/CityContext.jsx';
 import BackButton from './bACKbUTTON.JSX';
 
