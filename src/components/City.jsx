@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import Spinner from './Spinner';
 import { useEffect } from 'react';
 import { useCityContext } from '../context/CityContext.jsx';
-import BackButton from './bACKbUTTON.JSX';
+import BackButton from './BackButton.jsx';
 
 const formatDate = date =>
   new Intl.DateTimeFormat('en', {
