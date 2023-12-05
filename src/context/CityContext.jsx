@@ -2,7 +2,8 @@ import { createContext, useEffect, useContext, useReducer } from 'react';
 
 const CityContext = new createContext();
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://wandering-destiny-quality.glitch.me';
+// const BASE_URL = 'https://my-json-server.typicode.com/hizya/cities-api';
 
 const initialState = {
   cities: [],
@@ -105,6 +106,7 @@ function CityProvider({ children }) {
         body: JSON.stringify(newCity),
       });
       const data = await res.json();
+      console.log('add new data', data);
       dispatch({ type: 'city/created', payload: data });
     } catch (err) {
       dispatch({ type: 'rejected', payload: 'something went long' });
