@@ -20,7 +20,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route index element={<Homepage />} />
-
             <Route
               path="/app"
               element={

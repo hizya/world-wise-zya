@@ -19,13 +19,11 @@ function City() {
 
   useEffect(
     function () {
-      async function fetchCity() {
-        await getCity(id);
-      }
-      fetchCity();
+      getCity(id);
     },
-    [id]
+    [id, getCity]
   );
+
   if (isLoading) return <Spinner />;
 
   const { cityName, emoji, date, notes } = currentCity;
