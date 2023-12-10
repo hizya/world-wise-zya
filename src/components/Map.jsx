@@ -87,6 +87,7 @@ function Map() {
         })}
         <ChangeCenter position={mapPosition} />
         <DetectClick />
+        <EnableZoom />
       </MapContainer>
     </div>
   );
@@ -106,6 +107,11 @@ function DetectClick() {
     },
   });
   return null;
+}
+
+function EnableZoom() {
+  const map = useMap();
+  map.scrollWheelZoom.enable();
 }
 
 export default Map;
