@@ -9,7 +9,7 @@ import SpinnerFullPage from './components/SpinnerFullPage';
 import { CityProvider } from './context/CityContext';
 import { AuthProvider } from './context/FakeAuthContext';
 import ProtectedRoute from './pages/ProtectedRoute';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 const Homepage = lazy(() => import('./pages/Homepage'));
 const Product = lazy(() => import('./pages/Product'));
@@ -20,7 +20,10 @@ const Login = lazy(() => import('./pages/Login'));
 
 ReactGA.initialize('G-ENDNLYNB9G');
 
-ReactGA.pageview(window.location.pathname + window.location.search);
+ReactGA.send({
+  hitType: 'pageView',
+  page: window.location.pathname,
+});
 
 function App() {
   return (
