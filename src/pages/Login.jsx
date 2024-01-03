@@ -1,7 +1,7 @@
 import styles from './Login.module.css';
 import { useEffect, useState } from 'react';
 import { useAuthContext } from '../context/FakeAuthContext';
-
+import ReactGA from 'react-ga';
 import PageNav from '../components/PageNav';
 import { useNavigate } from 'react-router';
 import Button from '../components/Button';
@@ -24,7 +24,14 @@ export default function Login() {
 
   function handleLogin(e) {
     e.preventDefault();
-    if (email && password) login(email, password);
+    if (email && password) {
+      ReactGA.event({
+        category: 'Button',
+        action: 'Click',
+        label: 'Contact Us',
+      });
+      login(email, password);
+    }
   }
 
   return (
