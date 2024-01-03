@@ -20,6 +20,8 @@ const Login = lazy(() => import('./pages/Login'));
 
 ReactGA.initialize('G-ENDNLYNB9G');
 
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 function App() {
   return (
     <AuthProvider>
